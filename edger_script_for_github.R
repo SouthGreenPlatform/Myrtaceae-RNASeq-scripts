@@ -1,7 +1,7 @@
 # EdgeR based pipeline used for RNAseq data analysis of the response 
 # of myrtaceae species (close species to Eucalyptus grandis) to a fungi attack
 
-# R packages to load
+# R packages to load 
 library(QuasR)
 library(GenomicFeatures)
 library(corrplot)
@@ -84,6 +84,10 @@ y<-calcNormFactors(y)
 
 # Estimation of the common dispersion
 y <- estimateCommonDisp(y)
+
+# Estimation of the tagwise dispersion
+# y <- estimateTagwiseDisp(y)	## To calculate a specific dispersion for each tag instead of using the same dispersion for all the tags
+				## the common dispersion must be always calculate before the tagwise dispersion
 
 # Statistical tests based on negative binomial distribution
 et <- exactTest(y, pair=c("tolerant", "sensible"), dispersion="common")
