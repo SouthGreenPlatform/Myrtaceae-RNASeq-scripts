@@ -70,6 +70,11 @@ group <- c("tolerant","tolerant","sensible","sensible","sensible","sensible")
 
 y <- DGEList(counts=countDF[,1:6],group=group)
 
+# Keep only genes with cmp()>1 and expressed in at least in 2 samples 
+keep=rowSums(cpm(y)>1) >=2 
+y=y[keep,]
+
+
 # Multidimensional scaling plot of distances between digital gene expression profiles
 # The distances on the plot approximate the typical log2 fold changes between the samples.
 mds <- plotMDS(y, main="MultiDimensional Scaling plot", col=as.numeric(y$samples$group), xlab="Axe1 : logFC", ylab="Axe2 : logFC")
