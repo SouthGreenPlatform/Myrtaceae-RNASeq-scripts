@@ -24,3 +24,7 @@ Montpellier for providing HPC resources that have contributed to this work.
 Licencied under GPLv3.
 
 Intellectual property belongs to [CIRAD](https://www.cirad.fr/) and the authors.
+
+## South Green(-like) tools
+
+This work contributed to the development of https://myrtaceae-omics.southgreen.fr/
